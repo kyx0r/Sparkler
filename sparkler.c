@@ -81,11 +81,17 @@ static int gen_sparkles(double last, double now)
 			SPARKLE_POS_VARIANCE;
 #else /* CIRCLE DISTRIBUTION */
 		{
+redo:;
+                        get_pointer_pos(&pointer_x, &pointer_y);
 			int r = rand() % SPARKLE_POS_VARIANCE;
 			double t = random();
-
 			sparkles[i].x = pointer_x + r * sin(t);
 			sparkles[i].y = pointer_y + r * cos(t);
+			//prevent mouse focus if the particle gets in the way.
+			if(sparkles[i].x == pointer_x && sparkles[i].y == pointer_y)
+			{
+				goto redo;
+			}
 		}
 #endif
 			
@@ -161,12 +167,17 @@ int main(void)
 		
 		get_pointer_pos(&x, &y);
 		if (x != old_x || y != old_y)
+		{
 			last_time_moved = now;
+		}
 		if (now < last_time_moved + GEN_SPARKLES_AFTER_STOP)
+		{
 			change |= gen_sparkles(last_frame, now);
+		}
 		if (change)
+		{
 			redraw();
-
+		}
 		last_frame = now;
 
 		if (++ stay_on_top_counter > 10) {
