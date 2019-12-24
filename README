@@ -16,7 +16,8 @@ There are two versions of Sparkler:
  	Draws on a shaped top-level window, which means that the sparks are
 	visible all the time, but it is possible that mouse clicks get blocked
 	when you click on a spark, though that occurs very seldom.
-
+	Warning: Due to the bug with xcompmgr the blend will not happen corectly and trasparency will be about %50
+	to avoid this use different compositor, for instance picom works correctly.
 To build:
 
 make <version>
