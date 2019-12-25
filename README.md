@@ -41,4 +41,5 @@ Or if it concerns the circle distribution of the sparkles, mail to:
 
 Erik OShaughnessy <eriko@schwa.central.sun.com>
 
-![alt text] (https://github.com/FAETHER/Sparkler/blob/master/simplescreenrecorder-2019-12-24.gif)
+<p align="center">
+<img src="https://github.com/FAETHER/Sparkler/blob/master/simplescreenrecorder-2019-12-24.gif" href="" height="256">
